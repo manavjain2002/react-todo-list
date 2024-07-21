@@ -82,7 +82,7 @@ const ListGroupItem = ({
             <b>{title}</b>
           </div>
           <div className="list-description">{description}</div>
-          <div className="list-date">Finish By: {date.toDateString()}</div>
+          <div className="list-date">Deadline: {date.toDateString()}</div>
           {!isPending && (
             <div className="list-date">Finished On: {finishedOn}</div>
           )}
