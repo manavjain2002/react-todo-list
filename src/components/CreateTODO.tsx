@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface Props {
   count: number;
@@ -9,34 +9,46 @@ const CreateTODO = ({ setCount, count }: Props) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [date, setDate] = useState("");
+
+  useEffect(() => {
+    if (new Date(date) < new Date(new Date(Date.now()).toDateString())) {
+      alert("Select today's date or higher date");
+      setDate("")
+    }
+  }, [date]);
+
   const handleOnSubmit = (e: any) => {
     e.preventDefault();
     if (title && description && date) {
-      const pendingItemsStorage = localStorage.getItem("pendingItems");
+      if (new Date(date) >= new Date(new Date(Date.now()).toDateString())) {
+        const pendingItemsStorage = localStorage.getItem("pendingItems");
 
-      const pendingItems =
-        pendingItemsStorage && pendingItemsStorage.length > 0
-          ? JSON.parse(pendingItemsStorage)
-          : [];
+        const pendingItems =
+          pendingItemsStorage && pendingItemsStorage.length > 0
+            ? JSON.parse(pendingItemsStorage)
+            : [];
 
-      const newItem = {
-        key: count + 1,
-        title: title,
-        description,
-        isPending: true,
-        deadline: date,
-      };
+        const newItem = {
+          key: count + 1,
+          title: title,
+          description,
+          isPending: true,
+          deadline: date,
+        };
 
-      localStorage.setItem(
-        "pendingItems",
-        JSON.stringify([...pendingItems, newItem])
-      );
+        localStorage.setItem(
+          "pendingItems",
+          JSON.stringify([...pendingItems, newItem])
+        );
 
-      setTitle("");
-      setDescription("");
-      setDate("");
+        setTitle("");
+        setDescription("");
+        setDate("");
 
-      setCount(count + 1);
+        setCount(count + 1);
+      } else {
+        alert("Finished by date should be today's date or higher");
+      }
     } else {
       alert("Fill all the details");
     }

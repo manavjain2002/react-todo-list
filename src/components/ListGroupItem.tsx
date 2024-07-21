@@ -8,6 +8,7 @@ interface Props {
   isPending: boolean;
   changed: boolean;
   deletedItem: Todo;
+  finishedOn?: string;
   setDeletedItem: (item: Todo) => void;
   setCount: (count: number) => void;
   setChanged: (changed: boolean) => void;
@@ -20,6 +21,7 @@ const ListGroupItem = ({
   description,
   date,
   isPending,
+  finishedOn,
   keyValue,
   changed,
   setDeletedItem,
@@ -51,6 +53,7 @@ const ListGroupItem = ({
           {
             ...item,
             isPending: false,
+            finishedOn: new Date(Date.now()),
           },
         ];
       } else {
@@ -80,6 +83,9 @@ const ListGroupItem = ({
           </div>
           <div className="list-description">{description}</div>
           <div className="list-date">Finish By: {date.toDateString()}</div>
+          {!isPending && (
+            <div className="list-date">Finished On: {finishedOn}</div>
+          )}
         </div>
         {isPending && (
           <div className="list-item-btn">

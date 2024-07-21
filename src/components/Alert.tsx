@@ -41,6 +41,7 @@ const Alert = ({
           {
             ...item,
             isPending: true,
+            finishedOn: undefined,
           },
         ];
       } else {

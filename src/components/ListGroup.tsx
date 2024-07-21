@@ -33,6 +33,9 @@ const ListGroup = ({
             title={item.title}
             description={item.description}
             date={new Date(item.deadline)}
+            finishedOn={
+              item.finishedOn ? new Date(item.finishedOn).toDateString() : ""
+            }
             isPending={item.isPending}
             changed={changed}
             setChanged={setChanged}

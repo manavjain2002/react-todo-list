@@ -3,5 +3,6 @@ export interface Todo {
   description: string;
   deadline: Date;
   isPending: boolean;
+  finishedOn?: Date;
   key: number;
 }
