@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TODO List</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="main-content">
+      <div class="alert alert-warning text-center" role="alert">
+        Deleting the task. You cannot revert it back.
+        <button class="btn btn-danger"> Undo </button>
+      </div>
+      <h1 class="pageTitle">TODO-List</h1>
+      <div class="todo-manage">
+            <div class="create-section">
+
+                <div class="create-todo">
+                  <h1>Create new todo</h1>
+                  <form action="/" method="post">
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Title</label>
+                      <input type="text" class="form-control" id="title" />
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label"
+                        >Description</label
+                      >
+                      <input type="text" class="form-control" id="description" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="exampleInputDate" class="form-label"
+                          >Finished By</label
+                        >
+                        <input type="date" class="form-control" id="date" />
+                      </div>
+          
+                    <button type="submit" class="btn btn-secondary">Create</button>
+                  </form>
+                </div>
+            </div>
+    
+          <div class="list-todo">
+            <div class="todo-nav">
+              <div class="pending-tab"><button>Pending</button></div>
+              <div class="finished-tab"><button>Finished</button></div>
+            </div>
+            <div class="pending-todo">
+              <ul class="list-group">
+                <li class="list-group-item">
+                    <div class="list-item">
+                        <div class="list-item-description">
+                            <div class="list-title"><b>Title</b></div>
+                            <div class="list-description">Description</div>
+                        </div>
+
+                        <div class="list-item-btn">
+                            <button class="list-item-btn-delete">
+                                <img src="delete-button.png" height="30px" width="30px">
+                            </button>
+                        </div>
+
+                    </div>
+                </li>
+
+                <li class="list-group-item">
+                    <div class="list-item">
+                        <div class="list-item-description">
+                            <div class="list-title"><b>Title</b></div>
+                            <div class="list-description">Description</div>
+                        </div>
+
+                        <div class="list-item-btn">
+                            <button class="list-item-btn-delete">
+                                <img src="delete-button.png" height="30px" width="30px">
+                            </button>
+                        </div>
+
+                    </div>
+                </li>
+              </ul>
+            </div>
+    
+           <div class="completed-todo">
+              <ul class="list-group"> 
+                <!-- <li class="list-group-item">An item</li>
+                <li class="list-group-item">A second item</li>
+                <li class="list-group-item">A third item</li>
+                <li class="list-group-item">A fourth item</li>
+                <li class="list-group-item">And a fifth one</li> -->
+              </ul>
+            </div> 
+          </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
